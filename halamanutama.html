@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- Fontawespme CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="fontawesome-free-5.12.1-web/css/all.min.css"> -->
+    <!-- CSS sendiri -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css">  -->
+
+    <title>Projeck Bank</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container" id="app">
+        <a href="halamanutama.html">
+        <img src="img/1.jpg" width="30" height="40" class="d-inline-block align-top mr-3" alt="">
+        </a>
+      <a class="navbar-brand" href="halamanutama.html"> {{ data.nama }}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#">Profile </a>
+          <a class="nav-item nav-link" href="#">History</a>
+        </div>
+      </div>
+      </div>
+    </nav>
+  </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mysqljs.js"></script>
+    <script src="js/vue.js"></script>
+    <script>
+
+        // $(document).ready(function(){
+        //   $("#button").click(function(){
+        //     var nilai = $("#username").val();
+        //     console.log(nilai);
+        //   })
+        // })
+         // query = "SELECT * FROM userBank where username='"+$("#username1").text()+"'";
+         //  executeDB(query, function(data){
+         //    result = data.Result;
+         //    console.log(result);
+         //  });
+
+      
+         $(document).ready(function(){
+          query = "SELECT nama,jeniskelamin FROM userBank";
+          executeDB(query, function(data){
+            result = data.Result;
+            user.data = result[0];
+          })
+         })
+
+         var user = new Vue ({
+          el : '#app',
+          data : {
+            data : []
+          }
+         })
+
+          $('.nav-link').on('click', function(){
+            $('.nav-link').removeClass('active');
+            $(this).addClass('active');
+          })
+    </script>
+  </body>
+</html>

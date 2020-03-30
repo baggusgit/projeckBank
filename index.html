@@ -80,7 +80,7 @@
           query = "SELECT * FROM userBank where username='"+$("#username").val()+"'";
           executeDB(query, function(data){
             if (data.Result.length > 0) {
-              alert("Berhasil");
+              location.href = "halamanutama.html"
             }else {
               alert("gagal");
             }
