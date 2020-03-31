@@ -61,6 +61,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/mysqljs.js"></script>
+    <script src="js/vue.js"></script>    
     <script>
 
         // $(document).ready(function(){
@@ -77,9 +78,11 @@
       
         $(document).ready(function(){
           $("#button").click(function(){
-          query = "SELECT * FROM userBank where username='"+$("#username").val()+"'";
+          var usn = $('#username').val();
+          var pwd = $('#password').val();
+          var query = "SELECT username,password FROM userBank where username='"+usn+"'";
           executeDB(query, function(data){
-            if (data.Result.length > 0) {
+            if ((data.Result[0].username == usn) && (data.Result[0].password == pwd)) {
               location.href = "halamanutama.html"
             }else {
               alert("gagal");
